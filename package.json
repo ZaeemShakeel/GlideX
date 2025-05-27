@@ -1,5 +1,7 @@
 {
   "name": "glidex",
+  "displayName": "GlideX",
+  "author": "Zaeem Shakeel",
   "private": true,
   "version": "0.0.0",
   "type": "module",
