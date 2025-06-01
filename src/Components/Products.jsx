@@ -55,7 +55,10 @@ function Products() {
       </div>
       <div className="flex justify-evenly items-start gap-3 flex-wrap">
         {proData.map((product, index) => (
-          <div key={index} className="w-[28%] bg-[#252525] overflow-hidden">
+          <div
+            key={index}
+            className="w-[28%] bg-[#252525] overflow-hidden rounded-sm"
+          >
             <img src={product.Image} alt="Product" className="w-full" />
             <h2 className="font-bold text-2xl pt-2 pl-3 text-white">
               {product.title}

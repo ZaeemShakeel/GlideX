@@ -29,7 +29,7 @@ function ProductDetails() {
         With electric power shaping the future of the globe, explore our most
         reliable products now.
       </p>
-      <img src={Image} alt="banner" className="px-10 pt-4" />
+      <img src={Image} alt="banner" className="px-10 pt-4 " />
       <div className="flex justify-between items-center pt-10 w-[70%] m-auto">
         {statsData.map((item, index) => (
           <div className="w-1/4 flex flex-col items-center justify-between">
