@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { animate, inView } from "motion";
 
 function Details() {
   const details = [
@@ -24,10 +25,34 @@ function Details() {
     },
   ];
 
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    cardRefs.current.forEach((card, index) => {
+      if (card) {
+        // Set initial state for each card
+        card.style.opacity = 0;
+        card.style.transform = "translateY(40px)";
+
+        inView(card, () => {
+          animate(
+            card,
+            { opacity: [0, 1], y: [40, 0] },
+            { duration: 0.6, delay: index * 0.2 }
+          );
+        });
+      }
+    });
+  }, []);
+
   return (
-    <div className="flex justify-between items-center gap-5 p-5 py-20">
+    <div className="flex justify-between items-center gap-3 p-5 py-20 flex-wrap">
       {details.map((item, index) => (
-        <div className="w-[400px] h-[200px] p-5 bg-[#252525] flex flex-col justify-center rounded-sm">
+        <div
+          key={index}
+          ref={(el) => (cardRefs.current[index] = el)}
+          className="w-[350px] h-[200px] p-5 bg-[#252525] flex flex-col justify-center rounded-sm"
+        >
           <i className={`${item.icon} text-[#2DFF28] text-2xl`}></i>
           <h2 className="font-bold text-2xl py-2">{item.title}</h2>
           <p className="text-lg text-gray-400 text-wrap">{item.detail}</p>
@@ -38,5 +63,3 @@ function Details() {
 }
 
 export default Details;
-
-// Made By ZAEEM SHAKEEL

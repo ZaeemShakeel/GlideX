@@ -1,17 +1,20 @@
 import "./App.css";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-import Navbar from "./Components/Navbar";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import PublicRoutes from "./Layouts/PublicRoutes";
 import Home from "./Pages/Home";
+import Shop from "./Pages/Shop";
 
 function App() {
   return (
-    <div class="bg-[#1B1B1B]">
-      <Header />
-      <Navbar />
-      <Home />
-      <Footer />
-    </div>
+    <>
+      <Routes>
+        <Route element={<PublicRoutes />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

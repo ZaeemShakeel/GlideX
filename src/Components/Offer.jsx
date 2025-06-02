@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { animate, inView } from "motion";
 
 function Offer() {
+  const offerRef = useRef(null);
+
+  useEffect(() => {
+    if (offerRef.current) {
+      inView(offerRef.current, () => {
+        animate(
+          offerRef.current,
+          { opacity: [0, 1], x: [-100, 0] },
+          { duration: 0.8, easing: "ease-out" }
+        );
+      });
+    }
+  }, []);
+
   return (
     <div className="p-10">
-      <div className="bg-[#252525] h-[150px] p-8">
+      <div
+        ref={offerRef}
+        className="bg-[#252525] h-[150px] p-8 opacity-0 -translate-x-[100px]"
+      >
         <h1 className="text-white font-bold text-5xl hover:text-[#2DFF28] transition-all duration-300 cursor-pointer hover:scale-y-100">
           Grab It Soon! Offer Ends
         </h1>

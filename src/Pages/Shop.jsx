@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import Product1 from "../assets/Products/Product1.jpg";
 import Product2 from "../assets/Products/Product2.jpg";
 import Product3 from "../assets/Products/Product3.jpg";
-import Offer from "./Offer";
-import { Style } from "./CSS/Style.js";
+import Offer from "../Components/Offer.jsx";
+import { Style } from "../Components/CSS/Style.js";
 import { animate, inView } from "motion";
 
 function Products() {
