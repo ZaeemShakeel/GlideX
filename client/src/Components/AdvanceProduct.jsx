@@ -31,7 +31,6 @@ function AdvanceProduct() {
   ];
 
   useEffect(() => {
-    // Animate all header texts with stagger
     if (headerRef.current) {
       inView(headerRef.current, () => {
         textRefs.current.forEach((el, i) => {
@@ -44,7 +43,6 @@ function AdvanceProduct() {
       });
     }
 
-    // Animate each card individually
     cardRefs.current.forEach((card, i) => {
       if (card) {
         inView(card, () => {
@@ -60,6 +58,7 @@ function AdvanceProduct() {
 
   return (
     <>
+      {/* Header Section */}
       <div
         ref={headerRef}
         style={{
@@ -69,38 +68,43 @@ function AdvanceProduct() {
         }}
         className="h-[520px] w-full"
       >
-        <div className="w-[30%] pl-16 pt-20 text-white">
+        <div className="w-full sm:w-[70%] md:w-[50%] lg:w-[30%] px-4 sm:px-10 pt-20 text-white">
           <p
             ref={(el) => (textRefs.current[0] = el)}
-            className="text-lg text-[#2DFF28] opacity-0 translate-y-[30px]"
+            className="text-base sm:text-lg text-[#2DFF28] opacity-0 translate-y-[30px]"
           >
             Swift Recharge
           </p>
           <h1
             ref={(el) => (textRefs.current[1] = el)}
-            className="font-bold text-5xl opacity-0 translate-y-[30px]"
+            className="font-bold text-4xl sm:text-5xl opacity-0 translate-y-[30px]"
           >
             3-Hour
           </h1>
           <h1
             ref={(el) => (textRefs.current[2] = el)}
-            className="font-bold text-5xl opacity-0 translate-y-[30px]"
+            className="font-bold text-4xl sm:text-5xl opacity-0 translate-y-[30px]"
           >
             Rapid Charging
           </h1>
         </div>
       </div>
 
-      <div className="flex items-center justify-between p-6">
+      {/* Features Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-6 md:px-10 py-10">
         {cardData.map((item, index) => (
           <div
             key={index}
             ref={(el) => (cardRefs.current[index] = el)}
-            className="w-[25%] p-5 border-l-2 border-gray-400 opacity-0 translate-y-[30px] text-white"
+            className="p-5 border-l-2 border-gray-400 opacity-0 translate-y-[30px] text-white"
           >
-            <h1 className="font-bold text-2xl text-gray-200">{item.title}</h1>
-            <p className="text-gray-400 py-3">{item.text}</p>
-            <span className="font-bold text-5xl hover:text-[#2DFF28] transition-all duration-300 cursor-pointer">
+            <h1 className="font-bold text-xl md:text-2xl text-gray-200">
+              {item.title}
+            </h1>
+            <p className="text-gray-400 py-3 text-sm md:text-base">
+              {item.text}
+            </p>
+            <span className="font-bold text-4xl md:text-5xl hover:text-[#2DFF28] transition-all duration-300 cursor-pointer">
               {item.number}
             </span>
           </div>

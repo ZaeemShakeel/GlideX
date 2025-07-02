@@ -90,51 +90,60 @@ function Products() {
 
   return (
     <>
-      <div className="bg-[#1B1B1B] py-16">
-        <h1 ref={titleRef} className={Style.title}>
+      {/* Header */}
+      <div className="bg-[#1B1B1B] py-16 px-4 text-center">
+        <h1
+          ref={titleRef}
+          className={`${Style.title} text-3xl sm:text-4xl md:text-5xl`}
+        >
           Explore our best collections
         </h1>
         <p
           ref={paraRef}
-          className="text-lg text-gray-400 text-center pt-6 max-w-3xl mx-auto"
+          className="text-base sm:text-lg text-gray-400 pt-6 max-w-3xl mx-auto"
         >
           With electric power shaping the future of the globe, explore our most
           reliable products now.
         </p>
       </div>
 
-      <div className="flex justify-evenly items-start gap-3 flex-wrap px-4">
+      {/* Products */}
+      <div className="flex flex-wrap justify-center gap-6 px-4 sm:px-6 md:px-10 pb-16">
         {proData.map((product, index) => (
           <div
             key={index}
             ref={(el) => (cardRefs.current[index] = el)}
-            className="w-[28%] min-w-[280px] bg-[#252525] overflow-hidden rounded-sm"
+            className="w-full sm:w-[48%] lg:w-[30%] bg-[#252525] rounded-sm overflow-hidden"
           >
-            <img src={product.Image} alt="Product" className="w-full" />
-            <h2 className="font-bold text-2xl pt-2 pl-3 text-white">
-              {product.title}
-            </h2>
-            <p className="text-gray-400 py-2 pl-3">{product.text}</p>
-
-            <div className="flex gap-4 px-3 py-4">
-              {product.details.map((detail, i) => (
-                <div key={i} className="flex items-center space-x-2">
-                  <i className={`${detail.icon} text-2xl text-[#2DFF28]`}></i>
-                  <div className="text-white">
-                    <span className="block font-semibold text-sm">
-                      {detail.title}
-                    </span>
-                    <span className="block text-xs text-gray-400">
-                      {detail.text}
-                    </span>
+            <img src={product.Image} alt="Product" className="w-full h-auto" />
+            <div className="p-4">
+              <h2 className="font-bold text-xl md:text-2xl text-white">
+                {product.title}
+              </h2>
+              <p className="text-sm md:text-base text-gray-400 py-2">
+                {product.text}
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                {product.details.map((detail, i) => (
+                  <div key={i} className="flex items-center space-x-2 w-[48%]">
+                    <i className={`${detail.icon} text-xl text-[#2DFF28]`}></i>
+                    <div className="text-white">
+                      <span className="block font-semibold text-sm">
+                        {detail.title}
+                      </span>
+                      <span className="block text-xs text-gray-400">
+                        {detail.text}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         ))}
       </div>
 
+      {/* Offer Section */}
       <Offer />
     </>
   );

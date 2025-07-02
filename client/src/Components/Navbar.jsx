@@ -7,53 +7,43 @@ import logo from "../assets/logo.png";
 
 function Navbar() {
   return (
-    <>
-      <div className="flex justify-between items-center px-10">
-        {/* <ul className="flex justify-between gap-4 items-center">
-          <li className="font-semibold text-[#2DFF28]">Home </li>
-          <li className="font-semibold">Shop</li>
-          <li className="font-semibold">About</li>
-          <li className="font-semibold">Contact</li>
-        </ul> */}
+    <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-4 gap-4">
+      {/* Nav Links */}
+      <ul className="flex flex-wrap justify-center md:justify-start gap-4 items-center text-sm md:text-base">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `font-semibold ${isActive ? "text-[#2DFF28]" : "text-white"}`
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/shop"
+            className={({ isActive }) =>
+              `font-semibold ${isActive ? "text-[#2DFF28]" : "text-white"}`
+            }
+          >
+            Shop
+          </NavLink>
+        </li>
+        <li className="font-semibold text-white">About</li>
+        <li className="font-semibold text-white">Contact</li>
+      </ul>
 
-        <ul className="flex justify-between gap-4 items-center">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `font-semibold ${isActive ? "text-[#2DFF28]" : "text-white"}`
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/shop"
-              className={({ isActive }) =>
-                `font-semibold ${isActive ? "text-[#2DFF28]" : "text-white"}`
-              }
-            >
-              Shop
-            </NavLink>
-          </li>
-          <li className="font-semibold">About</li>
-          <li className="font-semibold">Contact</li>
-        </ul>
+      {/* Logo */}
+      <img src={logo} alt="GlideX" className="w-24 md:w-[10%] rounded-3xl" />
 
-        <img
-          src={logo}
-          alt="GlideX"
-          className="rounded-3xl w-[10%] mr-20 py-5"
-        />
-
-        <div className="flex justify-between gap-4 items-center">
-          <IoSearchSharp className="text-2xl" />
-          <CgProfile className="text-2xl" />
-          <MdOutlineShoppingBag className="text-2xl" />
-        </div>
+      {/* Icons */}
+      <div className="flex justify-center md:justify-end gap-4 items-center text-white">
+        <IoSearchSharp className="text-xl md:text-2xl" />
+        <CgProfile className="text-xl md:text-2xl" />
+        <MdOutlineShoppingBag className="text-xl md:text-2xl" />
       </div>
-    </>
+    </div>
   );
 }
 

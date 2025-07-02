@@ -17,17 +17,17 @@ function Offer() {
   }, []);
 
   return (
-    <div className="p-10">
+    <div className="px-4 sm:px-6 md:px-10 py-10">
       <div
         ref={offerRef}
-        className="bg-[#252525] h-[150px] p-8 opacity-0 -translate-x-[100px]"
+        className="bg-[#252525] opacity-0 -translate-x-[100px] p-6 sm:p-8 rounded-md"
       >
-        <h1 className="text-white font-bold text-5xl hover:text-[#2DFF28] transition-all duration-300 cursor-pointer hover:scale-y-100">
+        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl hover:text-[#2DFF28] transition-all duration-300 cursor-pointer">
           Grab It Soon! Offer Ends
         </h1>
-        <p className="text-lg text-gray-400 pt-2">
+        <p className="text-base sm:text-lg text-gray-400 pt-2">
           Charge up your future with an electric vehicle at the best affordable
-          price
+          price.
         </p>
       </div>
     </div>

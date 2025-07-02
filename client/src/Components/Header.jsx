@@ -1,26 +1,26 @@
 import React from "react";
-import { FaTiktok } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { MdArrowBackIos } from "react-icons/md";
-import { MdArrowForwardIos } from "react-icons/md";
+import { FaTiktok, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import Dropdown from "./DropDown";
 
 function Header() {
   return (
-    <div className="flex justify-between  px-10 pt-5 border-b-[1px] border-white pb-3">
-      <div className="flex justify-between items-center gap-4 ">
-        <FaXTwitter className="text-xl" />
-        <FaTiktok className="text-xl" />
-        <FaInstagram className="text-xl" />
+    <div className="hidden md:flex flex-col md:flex-row items-center justify-between gap-4 px-4 md:px-10 py-4 border-b border-white">
+      {/* Social Icons */}
+      <div className="flex items-center gap-4">
+        <FaXTwitter className="text-lg md:text-xl" />
+        <FaTiktok className="text-lg md:text-xl" />
+        <FaInstagram className="text-lg md:text-xl" />
       </div>
 
-      <div className="flex justify-between items-center gap-4">
+      {/* Shipping Message */}
+      <div className="flex items-center gap-2 text-center text-sm md:text-base">
         <MdArrowBackIos />
-        <p className="text-lg">Free Shipping on Order over $140</p>
+        <p className="whitespace-nowrap">Free Shipping on Order over $140</p>
         <MdArrowForwardIos />
       </div>
 
+      {/* Dropdown */}
       <div>
         <Dropdown />
       </div>

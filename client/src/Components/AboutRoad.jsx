@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Style } from "../Components/CSS/Style.js";
 import { animate, inView } from "motion";
+import Button from "../Utils/Button.jsx";
 
 function AboutRoad() {
   const containerRef = useRef(null);
@@ -66,12 +67,7 @@ function AboutRoad() {
         all eco-warriors. Take a stand against global warming and start your
         journey with Road today! Read more
       </p>
-      <button
-        ref={buttonRef}
-        className="bg-[#2DFF28] w-[25%] p-3 px-8 rounded-full text-black font-medium hover:bg-black hover:text-[#2DFF28] hover:scale-110 transition-all duration-300 opacity-0 translate-y-[30px]"
-      >
-        Read more
-      </button>
+      <Button title="Read more" />
     </div>
   );
 }

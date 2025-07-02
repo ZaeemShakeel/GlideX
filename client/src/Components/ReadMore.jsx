@@ -12,14 +12,12 @@ function ReadMore() {
   useEffect(() => {
     if (containerRef.current) {
       inView(containerRef.current, () => {
-        // Animate the whole card container (fade in + slide from left)
         animate(
           containerRef.current,
           { opacity: [0, 1], x: [-50, 0] },
           {
             duration: 0.6,
             easing: "ease-out",
-            // When container animation completes, animate inner elements
             onComplete: () => {
               animate(
                 titleRef.current,
@@ -51,20 +49,23 @@ function ReadMore() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="w-full h-[400px] flex flex-col items-center justify-center opacity-0 mt-10"
+      className="w-full min-h-[300px] sm:min-h-[400px] flex flex-col items-center justify-center text-center px-4 py-10 opacity-0 mt-10"
     >
       <h1
         ref={titleRef}
-        className={`${Style.title} opacity-0 translate-y-[30px]`}
+        className={`${Style.title} text-2xl sm:text-3xl md:text-4xl opacity-0 translate-y-[30px] text-white`}
       >
         Glow your ride with energetic E-scooters
       </h1>
-      <p ref={paraRef} className={`${Style.para} opacity-0 translate-y-[30px]`}>
+      <p
+        ref={paraRef}
+        className={`${Style.para} text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mt-2 opacity-0 translate-y-[30px]`}
+      >
         Empower your ride with strong Electric bikes from us
       </p>
       <button
         ref={buttonRef}
-        className="bg-white p-3 px-8 rounded-full mt-4 text-black font-medium hover:bg-black hover:text-[#2DFF28] hover:scale-110 transition-all duration-300 opacity-0 translate-y-[30px]"
+        className="bg-white px-6 py-3 rounded-full mt-4 text-black font-medium hover:bg-black hover:text-[#2DFF28] hover:scale-110 transition-all duration-300 opacity-0 translate-y-[30px]"
       >
         Read more
       </button>

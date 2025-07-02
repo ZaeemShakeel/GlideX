@@ -1,9 +1,7 @@
 import React from "react";
 import Logo from "../assets/logo.png";
 import { Foot } from "../Components/CSS/Style.js";
-import { FaTiktok } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
+import { FaTiktok, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import Payment from "../assets/payment.png";
 
 function Footer() {
@@ -42,53 +40,60 @@ function Footer() {
   ];
 
   return (
-    <div>
-      <div className="flex justify-evenly items-center px-5 py-10">
-        <div className="w-[24%]">
-          <img src={Logo} alt="GlideX Logo" />
-          <p className="text-gray-400    text-lg py-4">
+    <div className="bg-black text-white">
+      <div className="flex flex-col md:flex-row flex-wrap justify-between items-start px-4 md:px-10 py-10 gap-8">
+        {/* Logo and Contact */}
+        <div className="w-full md:w-[23%]">
+          <img src={Logo} alt="GlideX Logo" className="mb-4" />
+          <p className="text-gray-400 text-sm mb-4">
             Street offers government-certified mixed vehicles at affordable
             prices, ensuring quality EVs on the road.
           </p>
           {details.map((item, index) => (
-            <p className="text-gray-400 text-lg py-2">
-              <i className={`${item.icon} text-[#2DFF28]`}></i> {item.text}
+            <p key={index} className="text-gray-400 text-sm py-1">
+              <i className={`${item.icon} text-[#2DFF28] mr-2`}></i> {item.text}
             </p>
           ))}
         </div>
 
+        {/* Links Sections */}
         {midDetails.map((item, index) => (
-          <div className="w-[24%] flex flex-col justify-between    ">
-            <h1 className="font-bold text-2xl pb-2">{item.title}</h1>
-            <ul className={Foot.text}>{item.UL1}</ul>
-            <ul className={Foot.text}>{item.UL2}</ul>
-            <ul className={Foot.text}>{item.UL3}</ul>
-            <ul className={Foot.text}>{item.UL4}</ul>
-            <ul className={Foot.text}>{item.UL5}</ul>
+          <div key={index} className="w-full md:w-[23%] flex flex-col">
+            <h1 className="font-bold text-xl mb-2">{item.title}</h1>
+            <ul className="text-gray-400 text-sm space-y-1">
+              <li>{item.UL1}</li>
+              <li>{item.UL2}</li>
+              <li>{item.UL3}</li>
+              <li>{item.UL4}</li>
+              <li>{item.UL5}</li>
+            </ul>
           </div>
         ))}
 
-        <div className="w-[24%] flex flex-col justify-start">
-          <h1 className="font-bold text-2xl">Sign Up!</h1>
-          <div className="bg-[#252525] p-4 my-4 flex justify-between items-center">
+        {/* Newsletter & Social */}
+        <div className="w-full md:w-[23%]">
+          <h1 className="font-bold text-xl mb-2">Sign Up!</h1>
+          <div className="bg-[#252525] p-2 flex items-center rounded-md mb-4">
             <input
               type="text"
               placeholder="Your email address"
-              className="bg-transparent"
+              className="bg-transparent w-full text-sm px-2 text-white outline-none placeholder:text-gray-400"
             />
-            <i class="fa-solid fa-paper-plane text-[#2DFF28]"></i>
+            <i className="fa-solid fa-paper-plane text-[#2DFF28] px-2"></i>
           </div>
-          <div className="flex justify-start items-center gap-4 ">
+          <div className="flex items-center gap-4">
             <FaXTwitter className="text-xl" />
             <FaTiktok className="text-xl" />
             <FaInstagram className="text-xl" />
           </div>
         </div>
       </div>
-      <hr className="w-[95%] m-auto" />
-      <div className="flex justify-between items-center px-10 py-5">
+
+      <hr className="w-[95%] mx-auto border-gray-700" />
+
+      <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-5 text-sm text-gray-400 gap-4">
         <p>Created By Zaeem Shakeel © 2025, All Rights Reserved!</p>
-        <img src={Payment} alt="payments" />
+        <img src={Payment} alt="payments" className="w-32 md:w-40" />
       </div>
     </div>
   );

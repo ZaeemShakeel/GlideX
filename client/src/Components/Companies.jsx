@@ -22,10 +22,8 @@ function Companies() {
   useEffect(() => {
     logoRefs.current.forEach((logo, idx) => {
       if (logo) {
-        // Set initial state
         logo.style.opacity = 0;
         logo.style.transform = "translateY(30px)";
-
         inView(logo, () => {
           animate(
             logo,
@@ -38,17 +36,17 @@ function Companies() {
   }, []);
 
   return (
-    <div className="flex items-start justify-center gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 px-4 py-10 place-items-center">
       {comLogo.map((item, index) => (
         <div
           key={index}
           ref={(el) => (logoRefs.current[index] = el)}
-          className="border-2 border-gray-500 p-10 hover:bg-green-700 group transition-all duration-300 cursor-pointer w-1/6 flex justify-center items-center"
+          className="w-full h-[120px] flex justify-center items-center rounded-md border border-gray-500 bg-[#1c1c1c] hover:bg-green-700 group transition-all duration-300"
         >
           <img
             src={item.Img}
             alt="Company Logo"
-            className="w-[120px] h-[35px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+            className="max-h-[50px] object-contain opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
           />
         </div>
       ))}

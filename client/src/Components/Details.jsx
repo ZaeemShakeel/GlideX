@@ -15,12 +15,12 @@ function Details() {
     },
     {
       icon: "fa-solid fa-headset",
-      title: "24*7 Support",
-      detail: "Customer service active 24*7 all-over",
+      title: "24/7 Support",
+      detail: "Customer service active 24/7 all-over",
     },
     {
       icon: "fa-solid fa-people-carry-box",
-      title: "Fastest Delivery",
+      title: "Trusted Service",
       detail: "Trustworthy & reliable service provider",
     },
   ];
@@ -30,10 +30,8 @@ function Details() {
   useEffect(() => {
     cardRefs.current.forEach((card, index) => {
       if (card) {
-        // Set initial state for each card
         card.style.opacity = 0;
         card.style.transform = "translateY(40px)";
-
         inView(card, () => {
           animate(
             card,
@@ -46,16 +44,18 @@ function Details() {
   }, []);
 
   return (
-    <div className="flex justify-between items-center gap-3 p-5 py-20 flex-wrap">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-10 py-20">
       {details.map((item, index) => (
         <div
           key={index}
           ref={(el) => (cardRefs.current[index] = el)}
-          className="w-[350px] h-[200px] p-5 bg-[#252525] flex flex-col justify-center rounded-sm"
+          className="bg-[#252525] p-6 rounded-lg shadow-md h-[200px] flex flex-col justify-center"
         >
-          <i className={`${item.icon} text-[#2DFF28] text-2xl`}></i>
-          <h2 className="font-bold text-2xl py-2">{item.title}</h2>
-          <p className="text-lg text-gray-400 text-wrap">{item.detail}</p>
+          <i className={`${item.icon} text-[#2DFF28] text-xl md:text-2xl`}></i>
+          <h2 className="font-bold text-lg md:text-xl py-2 text-white">
+            {item.title}
+          </h2>
+          <p className="text-sm md:text-base text-gray-400">{item.detail}</p>
         </div>
       ))}
     </div>

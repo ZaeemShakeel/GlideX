@@ -100,7 +100,7 @@ function Products() {
       text: "Stay Hydrated with AquaSync Smart Bottle.",
       details: [
         {
-          icon: "fa-solid fa-bottle-water ",
+          icon: "fa-solid fa-bottle-water",
           title: "Duration",
           text: "8.45 hrs",
         },
@@ -164,19 +164,19 @@ function Products() {
         </h1>
         <p
           ref={paraRef}
-          className="text-lg text-gray-400 text-center pt-6 max-w-3xl mx-auto"
+          className="text-md text-gray-400 text-center pt-6 max-w-3xl mx-auto"
         >
           With electric power shaping the future of the globe, explore our most
           reliable products now.
         </p>
       </div>
 
-      <div className="flex justify-evenly items-start gap-3 flex-wrap px-4">
+      <div className="flex justify-evenly items-start gap-3 flex-wrap px-2 sm:px-4">
         {proData.map((product, index) => (
           <div
             key={index}
             ref={(el) => (cardRefs.current[index] = el)}
-            className="w-[28%] min-w-[280px] bg-[#252525] overflow-hidden rounded-sm"
+            className="w-full sm:w-[48%] lg:w-[28%] min-w-[280px] bg-[#252525] overflow-hidden rounded-sm"
           >
             <img src={product.Image} alt="Product" className="w-full" />
             <h2 className="font-bold text-2xl pt-2 pl-3 text-white">
@@ -184,7 +184,7 @@ function Products() {
             </h2>
             <p className="text-gray-400 py-2 pl-3">{product.text}</p>
 
-            <div className="flex gap-4 px-3 py-4">
+            <div className="flex gap-4 px-3 py-4 flex-wrap">
               {product.details.map((detail, i) => (
                 <div key={i} className="flex items-center space-x-2">
                   <i className={`${detail.icon} text-2xl text-[#2DFF28]`}></i>
